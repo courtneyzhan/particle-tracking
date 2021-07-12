@@ -45,6 +45,7 @@ for ii=1:numel(x)
 % ii = 1
     I_act(:,:,ii)=interp2(Xt,Yt,LIN,(Xf-x(ii))*cos(theta(ii))-(Yf-y(ii))*sin(theta(ii)),(Yf-y(ii))*cos(theta(ii))+(Xf-x(ii))*sin(theta(ii)),'cubic',0);
     temp = I_act(:, :, ii);
+    temp = interp2(I_act(:,:,ii), 1);
     [M, idx] = max(temp);
     [Max, Aj] = max(M);
     Ai = idx(Aj);
@@ -53,6 +54,8 @@ for ii=1:numel(x)
     theta
     dlmwrite('csv/data.csv', [Ai, Aj, theta(ii)], 'delimiter', ',', '-append')
 end
+
+% V = interp2(I_act(:,:,1), 1)
 
 %% plot to verify it creates the desired images:
 file_name = "image";
