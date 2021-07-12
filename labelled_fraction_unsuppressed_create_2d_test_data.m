@@ -15,8 +15,8 @@ theta_0=rand(10,1)*pi;
 
 [X,Y]=meshgrid(linspace(-3,3,50),linspace(-3,3,50));
 
-Iout=sinc(sqrt(X.^2+Y.^2)).*exp((-X.^2-Y.^2)/3); %convolution kernel to emulate microscope resolution.
-
+Iout=sinc(sqrt(X.^2+Y.^2)); %convolution kernel to emulate microscope resolution.
+% Iout=sinc(sqrt(X.^2+Y.^2)).*exp((-X.^2-Y.^2)/3); %convolution kernel to emulate microscope resolution.
 lin=zeros(200);
 lin(101+[-floor(pixel_length(1)/2):floor(pixel_length(1)/2-.001)],101)=1; %create vertical line to represent ecoli body.
 
@@ -45,6 +45,7 @@ for ii=1:numel(x)
 % ii = 1
     I_act(:,:,ii)=interp2(Xt,Yt,LIN,(Xf-x(ii))*cos(theta(ii))-(Yf-y(ii))*sin(theta(ii)),(Yf-y(ii))*cos(theta(ii))+(Xf-x(ii))*sin(theta(ii)),'cubic',0);
     temp = I_act(:, :, ii);
+    temp = interp2(I_act(:,:,ii), 1);
     [M, idx] = max(temp);
     [Max, Aj] = max(M);
     Ai = idx(Aj);
@@ -54,8 +55,10 @@ for ii=1:numel(x)
     dlmwrite('csv/data.csv', [Ai, Aj, theta(ii)], 'delimiter', ',', '-append')
 end
 
+% V = interp2(I_act(:,:,1), 1)
+
 %% plot to verify it creates the desired images:
-file_name = "image";
+file_name = "rimage";
 for ii=1:numel(x)
     imagesc(I_act(:,:,ii))
 %     drawnow
