@@ -24,6 +24,7 @@ def sp_noise(image,prob):
 file_number = 1
 probability = 0.1 # increase for more noise
 
+# for file_number in range(1, 1001): # loop here to do all images
 image = cv2.imread('data/dataset/image' + str(file_number) + '.jpg',0) 
 noise_img = sp_noise(image, probability)
 cv2.imwrite('noise' + str(file_number) + '.jpg', noise_img)
