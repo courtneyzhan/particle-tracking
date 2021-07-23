@@ -11,6 +11,6 @@ Using MATLAB under `attic/`, synthetic images of particles are generated alongsi
 ## Models Used
 Three single-output CNNs based off [DeepTrack 2.0's framework](https://github.com/softmatterlab/DeepTrack-2.0) were used to predict the angle and x- and y-coordinates of particles.  
 
-[Sample Image Output. Predicted (red) against gold standard (yellow) coordinate and angles](https://github.com/courtneyzhan/particle-tracking/tree/main/images/file043.png)
+![Sample Image Output. Predicted (red) against gold standard (yellow) coordinate and angles](https://github.com/courtneyzhan/particle-tracking/tree/main/images/file043.png)
 
-[Sample Test Run on a Simple Walk](https://github.com/courtneyzhan/particle-tracking/tree/main/images/short_animation.mp4)
+![Sample Test Run on a Simple Walk](https://github.com/courtneyzhan/particle-tracking/tree/main/images/short_animation.mp4)
