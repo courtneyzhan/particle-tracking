@@ -18,3 +18,4 @@ Three single-output CNNs based off [DeepTrack 2.0's framework](https://github.co
     <source src="https://github.com/courtneyzhan/particle-tracking/blob/efb734cdc936d3111685d07151339de462c7b49e/images/short_animation.mp4" type="video/mp4">
   </video>
 </figure>
+
