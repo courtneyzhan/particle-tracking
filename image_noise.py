@@ -26,4 +26,4 @@ probability = 0.1 # increase for more noise
 
 image = cv2.imread('data/dataset/image' + str(file_number) + '.jpg',0) 
 noise_img = sp_noise(image, probability)
-cv2.imwrite('sp_noise.jpg', noise_img)
+cv2.imwrite('noise' + str(file_number) + '.jpg', noise_img)
